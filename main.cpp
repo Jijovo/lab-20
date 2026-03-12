@@ -20,7 +20,7 @@ public:
         for (int i = 0; i < SIZE; i++)
             prices[i] = (rand() % (MAX - MIN + 1)) + MIN / 100.0;
     }
-    Chair(int l, double[] p) {
+    Chair(int l, double p[SIZE]) {
         prices = new double[SIZE];
         legs = l;
         for (int i = 0; i < SIZE; i++)
@@ -62,8 +62,8 @@ int main() {
     chairPtr->print();
 
     //creating dynamic chair object with constructor
-    Chair *livingChair = new Chair(3);
-    livingChair->setPrices(525.25, 434.34, 252.52);
+    double p[SIZE] = {525.25, 434.34, 252.52};
+    Chair *livingChair = new Chair(3, p);
     livingChair->print();
     delete livingChair;
     livingChair = nullptr;
@@ -71,9 +71,13 @@ int main() {
     //creating dynamic array of chair objects
     Chair *collection = new Chair[SIZE];
     //swap to use parameter constructor
-    collection[0] = Chair(4, {441.41, 552.52, 663.63});
-    collection[1] = Chair(4, {484.84, 959.59, 868.68});
-    collection[2] = Chair(4, {626.26, 515.15, 757.57});
+    double p1[SIZE] = {441.41, 552.52, 663.63};
+    double p2[SIZE] = {484.84, 959.59, 868.68};
+    double p3[SIZE] = {626.26, 515.15, 757.57};
+    collection[0] = Chair(4, p1);
+    collection[1] = Chair(4, p2);
+    collection[2] = Chair(4, p3);
+    cout << "Dynamic Array Chairs" << endl << endl;
     for (int i = 0; i < SIZE; i++)
         collection[i].print();
     
