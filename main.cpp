@@ -1,3 +1,4 @@
+//Ezzat Mohamadein | ComSc 210 | Lab 20
 #include <iostream>
 #include <iomanip>
 
@@ -12,9 +13,12 @@ public:
     // constructors
     Chair() {
         prices = new double[SIZE];
-        legs = 0;
+        const int min = 10000, max = 99999;
+        //assign 3 or 4 legs randomly
+        legs = (rand() % 2) + 3;
+        //add random prices from 100.00 to 999.00
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i] = (rand() % (max - min + 1)) + min / 100.0;
     }
     Chair(int l) {
         prices = new double[SIZE];
